@@ -1,7 +1,14 @@
+import { useState } from "react";
 import bgPicture from "../assets/images/drawers.jpg";
 import { FooterSh } from "./FooterSh";
 
 export function MC() {
+  const [share, setShare] = useState(false);
+
+  function handleShare() {
+    setShare((currentShare) => !currentShare);
+  }
+
   return (
     <>
       <main className="w-full my-28 md:flex">
@@ -17,7 +24,7 @@ export function MC() {
               it felt slightly bare and uninviting. I’ve got some simple tips to
               help you make any room feel complete.
             </p>
-            <FooterSh />
+            <FooterSh toShare={share} shareClick={handleShare} />
           </div>
         </div>
       </main>
